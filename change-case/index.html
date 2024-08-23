@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="theme-color" content="#1e2022" />
+      <title>Change Case</title>
+      <link rel="icon" href="../_img/favicon.ico" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
+   </head>
+
+   <body class="bg-[url(../_img/bg.jpeg)] bg-center bg-cover bg-fixed">
+      <div class="min-[570px]:w-[550px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
+         <!-- Header -->
+         <header class="bg-[#00adb5] py-2.5 px-5 flex justify-between items-center text-2xl">
+            <i class="fa-solid fa-arrow-left cursor-pointer invisible"></i>
+            <h2 class="font-bold">Change Case</h2>
+            <a href="./about.html"><i class="fa-regular fa-circle-question cursor-pointer"></i></a>
+         </header>
+
+         <!-- Main -->
+         <main class="p-5 mb-5 text-sm text-justify">
+            <div class="mt-2 flex justify-between w-full">
+               <select
+                  id="caseSelector"
+                  class="w-full p-1 border border-gray-500 rounded outline-0 cursor-pointer"
+               >
+                  <option value="">- Pilih Case -</option>
+                  <option value="sentence">Sentence case</option>
+                  <option value="lower">Lowercase</option>
+                  <option value="upper">Uppercase</option>
+                  <option value="capitalize">Capitalize each word</option>
+               </select>
+               <i id="copyButton" class="fa-regular fa-copy ml-5 text-2xl cursor-pointer"></i>
+            </div>
+            <textarea
+               id="textArea"
+               rows="10"
+               placeholder="Masukkan teks disini..."
+               class="w-full p-2 border border-gray-500 rounded mt-4 outline-0 text-justify"
+            ></textarea>
+         </main>
+
+         <!-- Footer -->
+         <footer class="bg-[#00adb5] text-[0.8rem] p-2.5 text-center">
+            <p>&copy; All Rights Reserved by Sulton Muhajir</p>
+         </footer>
+      </div>
+
+      <script src="./script.js"></script>
+   </body>
+</html>

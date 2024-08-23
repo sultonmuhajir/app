@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="theme-color" content="#1e2022" />
+      <title>Text Counter</title>
+      <link rel="icon" href="../_img/favicon.ico" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
+   </head>
+
+   <body class="bg-[url(../_img/bg.jpeg)] bg-center bg-cover bg-fixed">
+      <div class="min-[570px]:w-[550px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
+         <!-- Header -->
+         <header class="bg-[#00adb5] py-2.5 px-5 flex justify-between items-center text-2xl">
+            <i class="fa-solid fa-arrow-left cursor-pointer invisible"></i>
+            <h2 class="font-bold">Text Counter</h2>
+            <a href="./about.html"><i class="fa-regular fa-circle-question cursor-pointer"></i></a>
+         </header>
+
+         <!-- Main -->
+         <main class="p-5 mb-5 text-sm text-justify">
+            <textarea
+               id="teks"
+               rows="10"
+               placeholder="Masukkan teks disini..."
+               class="w-full p-2 border border-gray-500 rounded mt-4 outline-0 text-justify"
+            ></textarea>
+            <button id="hitung" class="mt-4 bg-[#222831] text-white py-2 rounded w-full">
+               Hitung
+            </button>
+            <div id="result" class="mt-7 mb-3 flex justify-around text-center hidden">
+               <div><span id="karakter" class="block text-4xl font-bold"></span>Karakter</div>
+               <div><span id="kata" class="block text-4xl font-bold"></span>Kata</div>
+               <div><span id="kalimat" class="block text-4xl font-bold"></span>Kalimat</div>
+            </div>
+         </main>
+
+         <!-- Footer -->
+         <footer class="bg-[#00adb5] text-[0.8rem] p-2.5 text-center">
+            <p>&copy; All Rights Reserved by Sulton Muhajir</p>
+         </footer>
+      </div>
+
+      <script src="./script.js"></script>
+   </body>
+</html>

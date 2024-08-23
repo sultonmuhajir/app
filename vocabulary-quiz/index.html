@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="theme-color" content="#1e2022" />
+      <title>Vocabulary Quiz</title>
+      <link rel="icon" href="../_img/favicon.ico" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
+   </head>
+
+   <body class="bg-[url(../_img/bg.jpeg)] bg-center bg-cover bg-fixed">
+      <div class="min-[570px]:w-[550px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
+         <!-- Header -->
+         <header class="bg-[#00adb5] py-2.5 px-5 flex justify-between items-center text-2xl">
+            <i
+               onclick="backToInput()"
+               id="backToInput"
+               class="fa-solid fa-arrow-left cursor-pointer invisible"
+            ></i>
+            <h2 class="font-bold">Vocabulary Quiz</h2>
+            <a href="./about.html"><i class="fa-regular fa-circle-question cursor-pointer"></i></a>
+         </header>
+
+         <!-- Main -->
+         <main class="p-5 mb-5 text-sm">
+            <!-- Input Area -->
+            <div id="inputArea">
+               <div class="relative mt-2 mb-4">
+                  <textarea
+                     id="wordTextarea"
+                     class="w-full p-2 border border-gray-500 rounded outline-0"
+                     rows="10"
+                  ></textarea>
+                  <i
+                     class="fa-solid fa-retweet text-lg absolute top-2.5 right-1 bg-white px-2 cursor-pointer"
+                     id="toggleFlipButton"
+                     onclick="toggleFlip()"
+                  ></i>
+               </div>
+               <div id="errorMessage" class="text-red-500 font-semibold mb-4 hidden">
+                  Format Salah!
+               </div>
+               <button
+                  id="startButton"
+                  onclick="startGame()"
+                  class="bg-[#222831] text-white py-2 rounded w-full"
+               >
+                  Mulai
+               </button>
+            </div>
+
+            <!-- Game Area -->
+            <div id="gameArea" class="hidden">
+               <div id="answerArea" class="mt-2 mb-4">
+                  <h2 class="text-base font-semibold">
+                     Terjemahkan kata: <span id="questionWord" class="font-bold"></span>
+                  </h2>
+                  <input
+                     id="userAnswer"
+                     type="text"
+                     class="w-full p-2 border border-gray-500 rounded mt-2 outline-0"
+                     placeholder="Masukkan jawaban Anda"
+                     autocomplete="off"
+                  />
+               </div>
+
+               <div class="flex justify-between items-center my-2">
+                  <div id="result" class="text-base font-semibold"></div>
+                  <div>
+                     <button
+                        id="checkButton"
+                        onclick="checkAnswer()"
+                        class="bg-[#222831] text-white py-2 px-4 rounded"
+                     >
+                        Cek Jawaban
+                     </button>
+                     <button
+                        id="passButton"
+                        onclick="passAnswer()"
+                        class="bg-[#222831] text-white py-2 px-4 rounded"
+                     >
+                        Pass
+                     </button>
+                  </div>
+               </div>
+
+               <button
+                  id="nextButton"
+                  onclick="nextWord()"
+                  class="bg-[#222831] text-white py-2 rounded w-full hidden"
+               >
+                  Lanjut
+               </button>
+               <button
+                  id="restartButton"
+                  onclick="restartGame()"
+                  class="bg-[#222831] text-white py-2 rounded w-full hidden"
+               >
+                  Mulai Ulang
+               </button>
+            </div>
+         </main>
+
+         <!-- Footer -->
+         <footer class="bg-[#00adb5] text-[0.8rem] p-2.5 text-center">
+            <p>&copy; All Rights Reserved by Sulton Muhajir</p>
+         </footer>
+      </div>
+
+      <!-- Custom Js -->
+      <script src="./script.js"></script>
+   </body>
+</html>
