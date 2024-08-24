@@ -2,12 +2,12 @@ let pairs = [];
 let currentPair = null;
 let isFlipped = false;
 
-document.getElementById("wordTextarea").placeholder =
+document.getElementById("teks").placeholder =
    "Masukkan kata dan terjemahan di sini\nFormat: kata - terjemahan";
 
 function toggleFlip() {
-   const textarea = document.getElementById("wordTextarea");
-   const lines = textarea.value.trim().split("\n");
+   const teks = document.getElementById("teks");
+   const lines = teks.value.trim().split("\n");
    const flippedLines = lines.map((line) => {
       const parts = line.split(" - ");
       if (parts.length === 2) {
@@ -17,16 +17,16 @@ function toggleFlip() {
       }
       return line;
    });
-   textarea.value = flippedLines.join("\n");
+   teks.value = flippedLines.join("\n");
    isFlipped = !isFlipped;
 }
 
 function startGame() {
-   const textarea = document.getElementById("wordTextarea");
-   const text = textarea.value.trim();
+   const teks = document.getElementById("teks");
+   const val = teks.value.trim();
    const errorMessage = document.getElementById("errorMessage");
-   if (text.length === 0) return;
-   pairs = text.split("\n").map((line) => {
+   if (val.length === 0) return;
+   pairs = val.split("\n").map((line) => {
       const parts = line.split(" - ").map((item) => item.trim());
       return parts.length === 2 ? { word: parts[0], translation: parts[1] } : null;
    });

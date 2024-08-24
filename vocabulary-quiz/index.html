@@ -14,7 +14,7 @@
    </head>
 
    <body class="bg-[url(../-assets/bg.jpeg)] bg-center bg-cover bg-fixed">
-      <div class="min-[570px]:w-[550px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
+      <div class="min-[520px]:w-[500px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
          <!-- Header -->
          <header class="bg-[#00adb5] py-2.5 px-5 flex justify-between items-center text-2xl">
             <i
@@ -32,12 +32,13 @@
             <div id="inputArea">
                <div class="relative mt-2 mb-4">
                   <textarea
-                     id="wordTextarea"
-                     class="w-full p-2 border border-gray-500 rounded outline-0"
+                     id="teks"
                      rows="10"
+                     spellcheck="false"
+                     class="w-full p-2 border border-gray-500 rounded outline-0 text-justify"
                   ></textarea>
                   <i
-                     class="fa-solid fa-retweet text-lg absolute top-2.5 right-1 bg-white px-2 cursor-pointer"
+                     class="fa-solid fa-retweet text-lg absolute top-1 right-1 bg-white px-2 cursor-pointer"
                      id="toggleFlipButton"
                      onclick="toggleFlip()"
                   ></i>

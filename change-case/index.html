@@ -14,7 +14,7 @@
    </head>
 
    <body class="bg-[url(../-assets/bg.jpeg)] bg-center bg-cover bg-fixed">
-      <div class="min-[570px]:w-[550px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
+      <div class="min-[520px]:w-[500px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
          <!-- Header -->
          <header class="bg-[#00adb5] py-2.5 px-5 flex justify-between items-center text-2xl">
             <i class="fa-solid fa-arrow-left cursor-pointer invisible"></i>
@@ -30,17 +30,18 @@
                   class="w-full p-1 border border-gray-500 rounded outline-0 cursor-pointer"
                >
                   <option value="">- Pilih Case -</option>
-                  <option value="sentence">Sentence case</option>
-                  <option value="lower">Lowercase</option>
                   <option value="upper">Uppercase</option>
-                  <option value="capitalize">Capitalize each word</option>
+                  <option value="lower">Lowercase</option>
+                  <option value="capitalize">Capitalize case</option>
+                  <option value="sentence">Sentence case</option>
                </select>
-               <i id="copyButton" class="fa-regular fa-copy ml-5 text-2xl cursor-pointer"></i>
+               <i id="copyButton" class="fa-regular fa-copy ml-4 text-xl cursor-pointer"></i>
             </div>
             <textarea
-               id="textArea"
+               id="teks"
                rows="10"
                placeholder="Masukkan teks disini..."
+               spellcheck="false"
                class="w-full p-2 border border-gray-500 rounded mt-4 outline-0 text-justify"
             ></textarea>
          </main>

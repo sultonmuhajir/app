@@ -14,7 +14,7 @@
    </head>
 
    <body class="bg-[url(../-assets/bg.jpeg)] bg-center bg-cover bg-fixed">
-      <div class="min-[570px]:w-[550px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
+      <div class="min-[520px]:w-[500px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
          <!-- Header -->
          <header class="bg-[#00adb5] py-2.5 px-5 flex justify-between items-center text-2xl">
             <i class="fa-solid fa-arrow-left cursor-pointer invisible"></i>
@@ -28,12 +28,13 @@
                id="teks"
                rows="10"
                placeholder="Masukkan teks disini..."
+               spellcheck="false"
                class="w-full p-2 border border-gray-500 rounded mt-4 outline-0 text-justify"
             ></textarea>
             <button id="hitung" class="mt-4 bg-[#222831] text-white py-2 rounded w-full">
                Hitung
             </button>
-            <div id="result" class="mt-7 mb-3 flex justify-around text-center hidden">
+            <div id="result" class="mt-8 mb-3 flex justify-around text-center hidden">
                <div><span id="karakter" class="block text-4xl font-bold"></span>Karakter</div>
                <div><span id="kata" class="block text-4xl font-bold"></span>Kata</div>
                <div><span id="kalimat" class="block text-4xl font-bold"></span>Kalimat</div>

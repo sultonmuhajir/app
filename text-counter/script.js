@@ -7,7 +7,8 @@ document.getElementById("hitung").addEventListener("click", function () {
       .split(" ")
       .filter((i) => i !== "").length;
    let kalimat = teks
-      .replace(/[\n\s]/g, "")
+      .replace(/\n/g, ".")
+      .replace(/\s/g, "")
       .split(".")
       .filter((i) => i !== "").length;
 
