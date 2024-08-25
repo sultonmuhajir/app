@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="theme-color" content="#1e2022" />
+      <title>Get Random</title>
+      <link rel="icon" href="../-assets/favicon.ico" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
+   </head>
+
+   <body class="bg-[url(../-assets/bg.jpeg)] bg-center bg-cover bg-fixed">
+      <div class="min-[520px]:w-[500px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
+         <!-- Header -->
+         <header class="bg-[#00adb5] py-2.5 px-5 flex justify-between items-center text-2xl">
+            <i id="backButton" class="fa-solid fa-arrow-left cursor-pointer invisible"></i>
+            <h2 class="font-bold">Get Random</h2>
+            <i id="infoButton" class="fa-regular fa-circle-question cursor-pointer"></i>
+         </header>
+
+         <!-- Main -->
+         <main class="p-5 mb-5 text-sm text-justify">
+            <div id="mainHome">
+               <select
+                  id="metode"
+                  class="w-full mt-2 p-1 border border-gray-500 rounded outline-0 cursor-pointer"
+               >
+                  <option value="normal">Normal</option>
+                  <option value="eliminasi">Eliminasi</option>
+               </select>
+
+               <textarea
+                  id="teks"
+                  rows="8"
+                  placeholder="Masukkan daftar disini..."
+                  spellcheck="false"
+                  class="w-full p-2 border border-gray-500 rounded mt-4 outline-0 text-justify"
+               ></textarea>
+
+               <div class="flex justify-center items-center mt-6">
+                  <button
+                     id="lock-button"
+                     class="w-10 h-7 outline-0 cursor-pointer border border-gray-500 rounded"
+                  >
+                     <i id="lock-toogle" class="fas fa-lock"></i>
+                  </button>
+                  <i id="play" class="fas fa-play-circle cursor-pointer text-5xl mx-5 z-10"></i>
+                  <i
+                     id="stop"
+                     class="fas fa-stop-circle cursor-pointer text-5xl mx-5 z-10 hidden"
+                  ></i>
+                  <button
+                     id="hapus"
+                     class="w-10 h-7 outline-0 cursor-pointer border border-gray-500 rounded"
+                  >
+                     <i class="fas fa-trash"></i>
+                  </button>
+                  <img
+                     src="./assets/loading.gif"
+                     alt="Loading"
+                     id="loading"
+                     class="absolute mx-auto w-20 hidden"
+                  />
+               </div>
+
+               <h1 id="result" class="text-xl font-bold text-center mt-7 mb-3 h-10 leading-10"></h1>
+            </div>
+
+            <div id="mainAbout" class="hidden">
+               <h2 class="text-lg font-semibold">Deskripsi</h2>
+               <p>
+                  Website "Get Random" merupakan aplikasi untuk mendapatkan nilai acak dari daftar
+                  yang diberikan. Daftar dimasukkan oleh user dengan pemisah antar nilai berupa
+                  baris baru.
+               </p>
+
+               <h2 class="text-lg font-semibold mt-3">Metode</h2>
+               <ul class="list-disc list-inside list-outside ml-5">
+                  <li>
+                     <span class="font-semibold">Normal:</span> Teks daftar bersifat statis, nilai
+                     yang sudah muncul akan tetap dipertahankan dari daftar.
+                  </li>
+                  <li>
+                     <span class="font-semibold">Eliminasi:</span> Teks daftar bersifat dinamis,
+                     nilai yang sudah muncul akan dihapus dari daftar.
+                  </li>
+               </ul>
+
+               <h2 class="text-lg font-semibold mt-3">Fungsi Tombol</h2>
+               <ul class="list-disc list-inside list-outside ml-5">
+                  <li>
+                     <span class="font-semibold">Lock & Unlock:</span> untuk mengunci dan membuka
+                     teks yang dimasukkan, pastikan format pengisian sudah benar.
+                  </li>
+                  <li>
+                     <span class="font-semibold">Play:</span> untuk menjalankan program, teks harus
+                     dikunci terlebih dahulu sebelum dijalankan.
+                  </li>
+                  <li>
+                     <span class="font-semibold">Stop:</span> untuk menghentikan dan mendapatkan
+                     hasil dari program yang dijalankan.
+                  </li>
+                  <li>
+                     <span class="font-semibold">Delete:</span> untuk menghapus daftar yang dibuat.
+                  </li>
+               </ul>
+            </div>
+         </main>
+
+         <!-- Footer -->
+         <footer class="bg-[#00adb5] text-[0.8rem] p-2.5 text-center">
+            <p>&copy; All Rights Reserved by Sulton Muhajir</p>
+         </footer>
+      </div>
+
+      <script src="./script.js"></script>
+   </body>
+</html>
