@@ -1,10 +1,28 @@
+// Variables
+const backButton   = document.getElementById("backButton");
+const infoButton   = document.getElementById("infoButton");
+const mainHome     = document.getElementById("mainHome");
+const mainAbout    = document.getElementById("mainAbout");
 const caseSelector = document.getElementById("caseSelector");
-const copyButton = document.getElementById("copyButton");
-const teks = document.getElementById("teks");
+const copyButton   = document.getElementById("copyButton");
+const teks         = document.getElementById("teks");
 
-teks.addEventListener("input", () => (caseSelector.value = ""));
+// Functions
+function _MainHome() {
+   backButton.classList.add("invisible");
+   infoButton.classList.remove("invisible");
+   mainHome.classList.remove("hidden");
+   mainAbout.classList.add("hidden");
+}
 
-caseSelector.addEventListener("change", function () {
+function _MainAbout() {
+   backButton.classList.remove("invisible");
+   infoButton.classList.add("invisible");
+   mainHome.classList.add("hidden");
+   mainAbout.classList.remove("hidden");
+}
+
+function _ChangeCase() {
    const caseType = this.value;
    let val = teks.value;
    switch (caseType) {
@@ -22,9 +40,9 @@ caseSelector.addEventListener("change", function () {
          break;
    }
    teks.value = val;
-});
+}
 
-copyButton.addEventListener("click", function () {
+function _CopyText() {
    teks.select();
    teks.setSelectionRange(0, 99999);
    document.execCommand("copy");
@@ -34,4 +52,11 @@ copyButton.addEventListener("click", function () {
       copyButton.classList.add("fa-regular", "fa-copy");
       copyButton.classList.remove("fa-solid", "fa-check");
    }, 2000);
-});
+}
+
+// Events
+backButton.addEventListener("click", _MainHome);
+infoButton.addEventListener("click", _MainAbout);
+caseSelector.addEventListener("change", _ChangeCase);
+copyButton.addEventListener("click", _CopyText);
+teks.addEventListener("input", () => (caseSelector.value = ""));

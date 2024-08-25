@@ -1,12 +1,48 @@
-let pairs = [];
+// Variables
+const backButton       = document.getElementById("backButton");
+const infoButton       = document.getElementById("infoButton");
+const mainInput        = document.getElementById("mainInput");
+const mainGame         = document.getElementById("mainGame");
+const mainAbout        = document.getElementById("mainAbout");
+
+const teks             = document.getElementById("teks");
+const toggleFlipButton = document.getElementById("toggleFlipButton");
+const errorMessage     = document.getElementById("errorMessage");
+const startButton      = document.getElementById("startButton");
+
+const checkButton      = document.getElementById("checkButton");
+const passButton       = document.getElementById("passButton");
+const nextButton       = document.getElementById("nextButton");
+const restartButton    = document.getElementById("restartButton");
+const answerArea       = document.getElementById("answerArea");
+const result           = document.getElementById("result");
+const questionWord     = document.getElementById("questionWord");
+const userAnswer       = document.getElementById("userAnswer");
+
+let pairs       = [];
 let currentPair = null;
-let isFlipped = false;
+let isFlipped   = false;
 
-document.getElementById("teks").placeholder =
-   "Masukkan kata dan terjemahan di sini\nFormat: kata - terjemahan";
+teks.placeholder = "Masukkan kata dan terjemahan di sini\nFormat: kata - terjemahan";
 
-function toggleFlip() {
-   const teks = document.getElementById("teks");
+// Functions
+function _MainInput() {
+   backButton.classList.add("invisible");
+   infoButton.classList.remove("invisible");
+   mainInput.classList.remove("hidden");
+   mainGame.classList.add("hidden");
+   mainAbout.classList.add("hidden");
+}
+
+function _MainAbout() {
+   backButton.classList.remove("invisible");
+   infoButton.classList.add("invisible");
+   mainInput.classList.add("hidden");
+   mainGame.classList.add("hidden");
+   mainAbout.classList.remove("hidden");
+}
+
+function _ToggleFlip() {
    const lines = teks.value.trim().split("\n");
    const flippedLines = lines.map((line) => {
       const parts = line.split(" - ");
@@ -21,10 +57,8 @@ function toggleFlip() {
    isFlipped = !isFlipped;
 }
 
-function startGame() {
-   const teks = document.getElementById("teks");
+function _StartGame() {
    const val = teks.value.trim();
-   const errorMessage = document.getElementById("errorMessage");
    if (val.length === 0) return;
    pairs = val.split("\n").map((line) => {
       const parts = line.split(" - ").map((item) => item.trim());
@@ -33,73 +67,75 @@ function startGame() {
    pairs = pairs.filter((pair) => pair !== null);
    if (pairs.length > 0) {
       errorMessage.classList.add("hidden");
-      document.getElementById("inputArea").classList.add("hidden");
-      document.getElementById("gameArea").classList.remove("hidden");
-      document.getElementById("answerArea").classList.remove("hidden");
-      document.getElementById("backToInput").classList.remove("invisible");
-      document.getElementById("result").innerHTML = "";
-      displayRandomWord();
+      mainInput.classList.add("hidden");
+      mainGame.classList.remove("hidden");
+      answerArea.classList.remove("hidden");
+      backButton.classList.remove("invisible");
+      result.innerHTML = "";
+      _DisplayRandomWord();
    } else {
       errorMessage.classList.remove("hidden");
    }
 }
 
-function displayRandomWord() {
+function _DisplayRandomWord() {
    if (pairs.length === 0) {
-      document.getElementById("answerArea").classList.add("hidden");
-      document.getElementById("result").innerText = "Permainan Selesai!";
-      document.getElementById("nextButton").classList.add("hidden");
-      document.getElementById("restartButton").classList.remove("hidden");
+      answerArea.classList.add("hidden");
+      result.innerText = "Permainan Selesai!";
+      nextButton.classList.add("hidden");
+      restartButton.classList.remove("hidden");
       return;
    }
    const randomIndex = Math.floor(Math.random() * pairs.length);
    currentPair = pairs[randomIndex];
-   document.getElementById("questionWord").innerText = currentPair.word;
-   document.getElementById("userAnswer").value = "";
-   document.getElementById("result").innerHTML = "";
-   document.getElementById("nextButton").classList.add("hidden");
-   document.getElementById("passButton").classList.remove("hidden");
-   document.getElementById("checkButton").classList.remove("hidden");
+   questionWord.innerText = currentPair.word;
+   userAnswer.value = "";
+   result.innerHTML = "";
+   nextButton.classList.add("hidden");
+   passButton.classList.remove("hidden");
+   checkButton.classList.remove("hidden");
 }
 
-function checkAnswer() {
-   const userAnswer = document.getElementById("userAnswer").value.trim();
-   const resultElement = document.getElementById("result");
-   if (userAnswer.toLowerCase() === currentPair.translation.toLowerCase()) {
-      resultElement.innerHTML = "<span class='text-green-500 text-3xl'>✔</span>";
-      document.getElementById("nextButton").classList.remove("hidden");
-      document.getElementById("passButton").classList.add("hidden");
-      document.getElementById("checkButton").classList.add("hidden");
+function _CheckAnswer() {
+   const answer = userAnswer.value.trim();
+   if (answer.toLowerCase() === currentPair.translation.toLowerCase()) {
+      result.innerHTML = "<span class='text-green-500 text-3xl'>✔</span>";
+      nextButton.classList.remove("hidden");
+      passButton.classList.add("hidden");
+      checkButton.classList.add("hidden");
    } else {
-      resultElement.innerHTML = "<span class='text-red-500 text-3xl'>✘</span>";
+      result.innerHTML = "<span class='text-red-500 text-3xl'>✘</span>";
    }
 }
 
-function passAnswer() {
-   const resultElement = document.getElementById("result");
-   resultElement.innerHTML = `<h2>Jawaban yang benar: <span class="font-bold">${currentPair.translation}</span></h2>`;
-   document.getElementById("nextButton").classList.remove("hidden");
-   document.getElementById("passButton").classList.add("hidden");
-   document.getElementById("checkButton").classList.add("hidden");
+function _PassAnswer() {
+   result.innerHTML = `<h2>Jawaban yang benar: <span class="font-bold">${currentPair.translation}</span></h2>`;
+   nextButton.classList.remove("hidden");
+   passButton.classList.add("hidden");
+   checkButton.classList.add("hidden");
 }
 
-function nextWord() {
+function _NextWord() {
    if (currentPair) {
-      const userAnswer = document.getElementById("userAnswer").value.trim().toLowerCase();
-      if (userAnswer === currentPair.translation.toLowerCase()) {
+      const answer = userAnswer.value.trim().toLowerCase();
+      if (answer === currentPair.translation.toLowerCase()) {
          pairs = pairs.filter((pair) => pair.word !== currentPair.word);
       }
    }
-   displayRandomWord();
+   _DisplayRandomWord();
 }
 
-function backToInput() {
-   document.getElementById("inputArea").classList.remove("hidden");
-   document.getElementById("gameArea").classList.add("hidden");
-   document.getElementById("backToInput").classList.add("invisible");
+function _RestartGame() {
+   restartButton.classList.add("hidden");
+   _MainInput();
 }
 
-function restartGame() {
-   document.getElementById("restartButton").classList.add("hidden");
-   backToInput();
-}
+// Events
+backButton.addEventListener("click", _MainInput);
+infoButton.addEventListener("click", _MainAbout);
+toggleFlipButton.addEventListener("click", _ToggleFlip);
+startButton.addEventListener("click", _StartGame);
+checkButton.addEventListener("click", _CheckAnswer);
+passButton.addEventListener("click", _PassAnswer);
+nextButton.addEventListener("click", _NextWord);
+restartButton.addEventListener("click", _RestartGame);

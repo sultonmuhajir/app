@@ -17,19 +17,14 @@
       <div class="min-[520px]:w-[500px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
          <!-- Header -->
          <header class="bg-[#00adb5] py-2.5 px-5 flex justify-between items-center text-2xl">
-            <i
-               onclick="backToInput()"
-               id="backToInput"
-               class="fa-solid fa-arrow-left cursor-pointer invisible"
-            ></i>
+            <i id="backButton" class="fa-solid fa-arrow-left cursor-pointer invisible"></i>
             <h2 class="font-bold">Vocabulary Quiz</h2>
-            <a href="./about.html"><i class="fa-regular fa-circle-question cursor-pointer"></i></a>
+            <i id="infoButton" class="fa-regular fa-circle-question cursor-pointer"></i>
          </header>
 
          <!-- Main -->
-         <main class="p-5 mb-5 text-sm">
-            <!-- Input Area -->
-            <div id="inputArea">
+         <main class="p-5 mb-5 text-sm text-justify">
+            <div id="mainInput">
                <div class="relative mt-2 mb-4">
                   <textarea
                      id="teks"
@@ -40,23 +35,17 @@
                   <i
                      class="fa-solid fa-retweet text-lg absolute top-1 right-1 bg-white px-2 cursor-pointer"
                      id="toggleFlipButton"
-                     onclick="toggleFlip()"
                   ></i>
                </div>
                <div id="errorMessage" class="text-red-500 font-semibold mb-4 hidden">
                   Format Salah!
                </div>
-               <button
-                  id="startButton"
-                  onclick="startGame()"
-                  class="bg-[#222831] text-white py-2 rounded w-full"
-               >
+               <button id="startButton" class="bg-[#222831] text-white py-2 rounded w-full">
                   Mulai
                </button>
             </div>
 
-            <!-- Game Area -->
-            <div id="gameArea" class="hidden">
+            <div id="mainGame" class="hidden">
                <div id="answerArea" class="mt-2 mb-4">
                   <h2 class="text-base font-semibold">
                      Terjemahkan kata: <span id="questionWord" class="font-bold"></span>
@@ -73,37 +62,155 @@
                <div class="flex justify-between items-center my-2">
                   <div id="result" class="text-base font-semibold"></div>
                   <div>
-                     <button
-                        id="checkButton"
-                        onclick="checkAnswer()"
-                        class="bg-[#222831] text-white py-2 px-4 rounded"
-                     >
+                     <button id="checkButton" class="bg-[#222831] text-white py-2 px-4 rounded">
                         Cek Jawaban
                      </button>
-                     <button
-                        id="passButton"
-                        onclick="passAnswer()"
-                        class="bg-[#222831] text-white py-2 px-4 rounded"
-                     >
+                     <button id="passButton" class="bg-[#222831] text-white py-2 px-4 rounded">
                         Pass
                      </button>
                   </div>
                </div>
 
-               <button
-                  id="nextButton"
-                  onclick="nextWord()"
-                  class="bg-[#222831] text-white py-2 rounded w-full hidden"
-               >
+               <button id="nextButton" class="bg-[#222831] text-white py-2 rounded w-full hidden">
                   Lanjut
                </button>
                <button
                   id="restartButton"
-                  onclick="restartGame()"
                   class="bg-[#222831] text-white py-2 rounded w-full hidden"
                >
                   Mulai Ulang
                </button>
+            </div>
+
+            <div id="mainAbout" class="hidden">
+               <!-- Deskripsi -->
+               <h2 class="text-lg font-semibold">Deskripsi</h2>
+               <p>
+                  Website "Vocabulary Quiz" adalah alat sederhana untuk membantu pengguna
+                  meningkatkan kosakata bahasa Inggris mereka dengan cara yang menyenangkan dan
+                  interaktif. Dengan menggunakan website ini, Anda dapat belajar dan menguji
+                  kemampuan bahasa Inggris Anda melalui permainan menebak kata. Website ini cocok
+                  digunakan oleh siapa saja, baik yang baru mulai belajar bahasa Inggris maupun yang
+                  ingin memperdalam pemahaman mereka tentang terjemahan kata-kata bahasa Inggris ke
+                  bahasa Indonesia dan sebaliknya.
+               </p>
+
+               <!-- Cara Kerja dan Alur Penggunaan -->
+               <h2 class="text-lg font-semibold mt-3">Cara Kerja dan Alur Penggunaan</h2>
+               <ol class="list-decimal list-inside pl-2">
+                  <li class="font-semibold">Memasukkan Kata dan Terjemahan</li>
+                  <ul class="list-disc list-inside list-outside pl-8">
+                     <!-- Satu -->
+                     <li>
+                        Di halaman utama, Anda akan menemukan sebuah teks area (kotak teks besar) di
+                        mana Anda dapat memasukkan daftar kata bahasa Inggris beserta terjemahannya
+                        dalam bahasa Indonesia. Format penulisan harus dalam bentuk "Kata -
+                        Terjemahan". Contohnya, jika Anda ingin memasukkan kata "Run", Anda harus
+                        menuliskannya sebagai "Run - Lari". Pastikan setiap kata dan terjemahan
+                        dipisahkan oleh garis hubung (" - ") dan setiap pasangan kata ditempatkan
+                        pada baris baru.
+                     </li>
+                     <li>
+                        <span class="font-semibold">Catatan:</span> Format penulisan yang benar
+                        sangat penting. Pasangan kata yang tidak sesuai format akan diabaikan. Dan
+                        jika tidak ada satupun pasangan kata yang valid, maka tombol "Mulai" tidak
+                        akan berfungsi, dan pesan "Format Salah!" akan muncul di bawah teks area.
+                     </li>
+                  </ul>
+
+                  <!-- Dua -->
+                  <li class="font-semibold mt-2">Memulai Permainan</li>
+                  <ul class="list-disc list-inside list-outside pl-8">
+                     <li>
+                        Permainan dimulai ketika Anda telah memasukkan kata dan terjemahan dengan
+                        format yang benar di teks area, lalu mengklik tombol "Mulai". Setelah itu,
+                        Anda akan diarahkan ke halaman permainan di mana Anda bisa mulai menebak
+                        terjemahan kata-kata yang telah Anda masukkan.
+                     </li>
+                     <li>
+                        <span class="font-semibold"
+                           >Tombol ("<i class="fa-solid fa-retweet"></i>")</span
+                        >
+                        Berfungsi untuk membalik pasangan kata yang telah Anda masukkan dalam teks
+                        area. Misalnya, jika Anda memiliki pasangan "Run - Lari", tombol ini akan
+                        mengubahnya menjadi "Lari - Run". Tombol ini berfungsi seperti toggle,
+                        sehingga Anda dapat mengkliknya lagi untuk mengembalikan pasangan kata ke
+                        posisi semula.
+                     </li>
+                     <li>
+                        <span class="font-semibold">Tombol "Mulai"</span> Setelah Anda memastikan
+                        format penulisan sudah benar dan sesuai dengan keinginan Anda, klik tombol
+                        "Mulai" untuk memulai permainan. Tombol ini hanya dapat diklik jika
+                        setidaknya ada satu pasangan kata yang valid dengan format yang benar.
+                     </li>
+                  </ul>
+
+                  <!-- Tiga -->
+                  <li class="font-semibold mt-2">Menebak Kata</li>
+                  <ul class="list-disc list-inside list-outside pl-8">
+                     <li>
+                        Setelah permainan dimulai, Anda akan diberikan satu kata bahasa Inggris
+                        secara acak dari daftar yang telah Anda masukkan. Tugas Anda adalah menebak
+                        terjemahan kata tersebut dalam bahasa Indonesia dengan mengetikkannya di
+                        kotak teks yang tersedia.
+                     </li>
+                     <li>
+                        <span class="font-semibold">Tombol "Cek Jawaban":</span> Setelah mengetikkan
+                        jawaban Anda, klik tombol ini untuk memeriksa apakah jawaban Anda benar atau
+                        salah. Jika jawaban Anda benar, ikon centang ("✔") akan muncul, dan tombol
+                        "Lanjut" akan ditampilkan. Jika jawaban Anda salah, ikon silang ("✘") akan
+                        muncul, dan Anda dapat mencoba lagi atau menyerah dengan menekan tombol
+                        "Pass".
+                     </li>
+                     <li>
+                        <span class="font-semibold">Tombol "Pass":</span> Jika Anda tidak tahu
+                        jawabannya, Anda bisa menyerah dengan menekan tombol "Pass". Sistem akan
+                        menampilkan jawaban yang benar dan menyiapkan Anda untuk kata berikutnya.
+                     </li>
+                     <li>
+                        <span class="font-semibold">Tombol "Lanjut":</span> Jika Anda menebak dengan
+                        benar, Anda bisa melanjutkan ke kata berikutnya dengan mengklik tombol
+                        "Lanjut". Kata yang berhasil ditebak dengan benar akan dihapus dari daftar
+                        untuk mencegah pengulangan. Namun, jika Anda memilih untuk "Pass"
+                        (menyerah), kata tersebut tidak akan dihapus dan akan muncul lagi secara
+                        acak di putaran berikutnya.
+                     </li>
+                  </ul>
+
+                  <!-- Empat -->
+                  <li class="font-semibold mt-2">Menyelesaikan Permainan</li>
+                  <ul class="list-disc list-inside list-outside pl-8">
+                     <li>
+                        Permainan berakhir ketika semua kata yang telah Anda masukkan sudah ditebak
+                        atau dilewatkan. Saat ini terjadi, sistem akan menampilkan pesan "Permainan
+                        Selesai!" dan memberikan opsi untuk memulai ulang permainan.
+                     </li>
+                     <li>
+                        <span class="font-semibold">Tombol "Mulai Ulang":</span> Klik tombol ini
+                        untuk kembali ke halaman utama dan memasukkan daftar kata baru atau
+                        memainkan ulang permainan dengan daftar yang sama.
+                     </li>
+                     <li>
+                        <span class="font-semibold"
+                           >Tombol ("<i class="fa-solid fa-arrow-left"></i>"):</span
+                        >
+                        Jika Anda ingin kembali ke halaman utama kapan saja selama permainan, Anda
+                        bisa menekan tombol kembali yang berada di pojok kiri atas halaman
+                        permainan. Ini akan membawa Anda kembali ke halaman di mana Anda bisa
+                        memasukkan kata dan terjemahan baru.
+                     </li>
+                  </ul>
+               </ol>
+
+               <!-- Penutup -->
+               <h2 class="text-lg font-semibold mt-2">Penutup</h2>
+               <p>
+                  Website ini dirancang untuk membantu proses pembelajaran bahasa Inggris menjadi
+                  lebih interaktif dan menyenangkan. Dengan sering memainkan permainan ini, Anda
+                  dapat memperkaya kosakata bahasa Inggris Anda dengan cara yang menarik dan tidak
+                  membosankan. Semoga website ini bermanfaat dalam perjalanan Anda mempelajari
+                  bahasa Inggris!.
+               </p>
             </div>
          </main>
 
