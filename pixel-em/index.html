@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="theme-color" content="#1e2022" />
+      <title>Pixel Em</title>
+      <link rel="icon" href="../-assets/favicon.ico" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
+   </head>
+
+   <body class="bg-[url(../-assets/bg.jpeg)] bg-center bg-cover bg-fixed">
+      <div class="min-[520px]:w-[500px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
+         <!-- Header -->
+         <header class="bg-[#00adb5] py-2.5 px-5 flex justify-between items-center text-2xl">
+            <i id="backButton" class="fa-solid fa-arrow-left cursor-pointer invisible"></i>
+            <h2 class="font-bold">Pixel Em</h2>
+            <i id="infoButton" class="fa-regular fa-circle-question cursor-pointer"></i>
+         </header>
+
+         <!-- Main -->
+         <main class="p-5 mb-5 text-sm text-justify">
+            <div id="mainHome">
+               <img src="./assets/pxem.png" alt="Pixel Em" class="h-40 mx-auto" />
+               <div class="w-full min-[350px]:w-64 mx-auto">
+                  <label for="defaultInput" class="block mt-3">Default pixel size</label>
+                  <div class="flex justify-between">
+                     <input
+                        name="defaultInput"
+                        id="defaultInput"
+                        autocomplete="off"
+                        value="16"
+                        disabled
+                        class="w-[88%] p-1 border border-gray-500 rounded-sm outline-0"
+                     />
+                     <i id="editButton" class="fas fa-edit text-xl cursor-pointer"></i>
+                     <i id="lockButton" class="fas fa-lock text-xl cursor-pointer hidden"></i>
+                  </div>
+                  <label for="pxInput" class="block mt-3">Pixel</label>
+                  <input
+                     name="pxInput"
+                     id="pxInput"
+                     autocomplete="off"
+                     class="block w-full p-1 border border-gray-500 rounded-sm outline-0"
+                  />
+                  <label for="emInput" class="block mt-3">Em</label>
+                  <input
+                     name="emInput"
+                     id="emInput"
+                     autocomplete="off"
+                     class="block w-full p-1 border border-gray-500 rounded-sm outline-0 mb-4"
+                  />
+               </div>
+            </div>
+
+            <div id="mainAbout" class="hidden">
+               <h2 class="text-lg font-semibold">Deskripsi</h2>
+               <p>
+                  Website "Pixel Em" adalah aplikasi web sederhana yang memungkinkan pengguna untuk
+                  mengkonversi ukuran antara satuan piksel (px) dan em. Alat ini dirancang untuk
+                  memudahkan desainer web, pengembang, dan siapa saja yang ingin melakukan konversi
+                  ukuran dengan cepat dan akurat antara dua satuan pengukuran yang sering digunakan
+                  dalam pengembangan web.
+               </p>
+
+               <h2 class="text-lg font-semibold mt-3">Fitur Utama</h2>
+               <ul class="list-disc list-inside list-outside pl-5">
+                  <li>
+                     <span class="font-semibold">Konversi Dinamis:</span> Pengguna dapat
+                     mengkonversi nilai dari piksel ke em dan sebaliknya secara real-time.
+                  </li>
+                  <li>
+                     <span class="font-semibold">Mode Edit dan Kunci:</span> Aplikasi ini memiliki
+                     dua mode:
+                     <ul class="list-[circle] list-inside list-outside pl-5">
+                        <li>
+                           <span class="font-semibold">Mode Edit:</span> Memungkinkan pengguna untuk
+                           mengubah nilai dasar konversi (default).
+                        </li>
+                        <li>
+                           <span class="font-semibold">Mode Kunci:</span> Mengunci nilai dasar
+                           konversi sehingga pengguna hanya dapat memasukkan nilai dalam piksel atau
+                           em untuk konversi.
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="font-semibold">Input Validasi Otomatis:</span> Input yang tidak
+                     valid atau kosong akan dinonaktifkan untuk menjaga akurasi konversi.
+                  </li>
+                  <li>
+                     <span class="font-semibold">Antarmuka Pengguna yang Sederhana:</span> Desain
+                     antarmuka pengguna yang mudah digunakan dan intuitif, dengan ikon edit dan
+                     kunci untuk mengganti mode.
+                  </li>
+               </ul>
+
+               <h2 class="text-lg font-semibold mt-3">Cara Penggunaan</h2>
+               <ol class="list-decimal list-inside list-outside ml-5">
+                  <li>
+                     <span class="font-semibold">Memulai Konversi:</span>
+                     <ul class="list-disc list-inside list-outside pl-5">
+                        <li>
+                           Saat pertama kali membuka halaman, alat ini akan berada dalam Mode Kunci
+                           secara default, di mana input untuk piksel dan em akan tersedia untuk
+                           digunakan, dan nilai dasar konversi dikunci.
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="font-semibold">Mengubah Nilai Dasar Konversi:</span>
+                     <ul class="list-disc list-inside list-outside pl-5">
+                        <li>Klik ikon ("<i class="fas fa-edit"></i>") untuk memasuki Mode Edit.</li>
+                        <li>
+                           Setelah mode ini aktif, input dasar akan terbuka untuk dimodifikasi.
+                           Pengguna dapat memasukkan nilai baru untuk dasar konversi.
+                        </li>
+                        <li>Input untuk piksel dan em akan dikunci selama proses ini.</li>
+                        <li>
+                           Setelah nilai baru dimasukkan, klik ikon ("<i class="fas fa-lock"></i>")
+                           untuk kembali ke Mode Kunci.
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="font-semibold">Melakukan Konversi:</span>
+                     <ul class="list-disc list-inside list-outside pl-5">
+                        <li>
+                           Masukkan nilai dalam input piksel untuk mengkonversi nilai tersebut ke
+                           dalam em.
+                        </li>
+                        <li>
+                           Masukkan nilai dalam input em untuk mengkonversi nilai tersebut ke dalam
+                           piksel.
+                        </li>
+                        <li>Hasil konversi akan muncul secara otomatis di input yang lain.</li>
+                     </ul>
+                  </li>
+               </ol>
+
+               <p class="mt-3">
+                  Dengan fitur-fitur dan cara penggunaan yang intuitif, "Pixel Em" adalah alat yang
+                  tepat bagi siapa saja yang membutuhkan solusi cepat dan mudah untuk konversi
+                  satuan ukuran dalam pengembangan web.
+               </p>
+            </div>
+         </main>
+
+         <!-- Footer -->
+         <footer class="bg-[#00adb5] text-[0.8rem] p-2.5 text-center">
+            <p>&copy; All Rights Reserved by Sulton Muhajir</p>
+         </footer>
+      </div>
+
+      <script src="./script.js"></script>
+   </body>
+</html>
