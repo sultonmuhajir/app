@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="theme-color" content="#1e2022" />
+      <title>Set Statistics</title>
+      <link rel="icon" href="../-assets/favicon.ico" />
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      />
+      <script src="https://cdn.tailwindcss.com"></script>
+   </head>
+
+   <body class="bg-[url(../-assets/bg.jpeg)] bg-center bg-cover bg-fixed">
+      <div class="min-[520px]:w-[500px] w-[96%] rounded bg-[#eee] mx-auto my-12 overflow-hidden">
+         <!-- Header -->
+         <header class="bg-[#00adb5] py-2.5 px-5 flex justify-between items-center text-2xl">
+            <i id="backButton" class="fa-solid fa-arrow-left cursor-pointer invisible"></i>
+            <h2 class="font-bold">Set Statistics</h2>
+            <i id="infoButton" class="fa-regular fa-circle-question cursor-pointer"></i>
+         </header>
+
+         <!-- Main -->
+         <main class="p-5 mb-5 text-sm text-justify">
+            <div id="mainInput">
+               <div class="flex justify-between">
+                  <div class="w-[45%]">
+                     <div class="flex justify-between font-semibold">
+                        <label for="inputSetA">Himpunan A</label>
+                        <span id="inputCardinalityA">0</span>
+                     </div>
+                     <textarea
+                        id="inputSetA"
+                        rows="10"
+                        spellcheck="false"
+                        class="w-full p-2 border border-gray-500 rounded outline-0 text-justify"
+                     ></textarea>
+                  </div>
+                  <div class="w-[45%]">
+                     <div class="flex justify-between font-semibold">
+                        <label for="inputSetB">Himpunan B</label>
+                        <span id="inputCardinalityB">0</span>
+                     </div>
+                     <textarea
+                        id="inputSetB"
+                        rows="10"
+                        spellcheck="false"
+                        class="w-full p-2 border border-gray-500 rounded outline-0 text-justify"
+                     ></textarea>
+                  </div>
+               </div>
+               <div class="flex justify-between items-center mt-4 cursor-pointer">
+                  <button
+                     id="calculateButton"
+                     class="bg-[#222831] text-white py-2 rounded w-full"
+                     disabled
+                  >
+                     Hitung Statistik
+                  </button>
+                  <i id="clearButton" class="fa-solid fa-trash text-[#222831] text-2xl ml-5"></i>
+               </div>
+            </div>
+
+            <div id="mainOutput" class="hidden">
+               <div class="flex justify-between items-center">
+                  <div class="w-[45%] font-semibold text-xl">
+                     <div class="mx-auto w-fit">
+                        <p class="my-3">|A| = <span id="outputCardinalityA"></span></p>
+                        <p class="my-3">|B| = <span id="outputCardinalityB"></span></p>
+                     </div>
+                  </div>
+                  <div class="w-[45%]">
+                     <div class="flex justify-between font-semibold">
+                        <label for="outputIntersection">Irisan (A ∩ B)</label>
+                        <span id="countIntersection"></span>
+                     </div>
+                     <textarea
+                        id="outputIntersection"
+                        rows="7"
+                        class="w-full p-2 border border-gray-500 rounded outline-0 text-justify"
+                        spellcheck="false"
+                        readonly
+                     ></textarea>
+                  </div>
+               </div>
+               <div class="flex justify-between mt-3">
+                  <div class="w-[45%]">
+                     <div class="flex justify-between font-semibold">
+                        <label for="outputDifferenceA">Selisih (A - B)</label>
+                        <span id="countDifferenceA"></span>
+                     </div>
+                     <textarea
+                        id="outputDifferenceA"
+                        rows="7"
+                        class="w-full p-2 border border-gray-500 rounded outline-0 text-justify"
+                        spellcheck="false"
+                        readonly
+                     ></textarea>
+                  </div>
+                  <div class="w-[45%]">
+                     <div class="flex justify-between font-semibold">
+                        <label for="outputDifferenceB">Selisih (B - A) </label>
+                        <span id="countDifferenceB"></span>
+                     </div>
+                     <textarea
+                        id="outputDifferenceB"
+                        rows="7"
+                        class="w-full p-2 border border-gray-500 rounded outline-0 text-justify"
+                        spellcheck="false"
+                        readonly
+                     ></textarea>
+                  </div>
+               </div>
+            </div>
+
+            <div id="mainAbout" class="hidden">
+               <h2 class="text-lg font-semibold">Deskripsi</h2>
+               <p>
+                  Website "Set Statistics" adalah aplikasi web sederhana yang memungkinkan pengguna
+                  untuk melakukan operasi dasar pada dua himpunan, seperti menghitung kardinalitas
+                  (jumlah elemen), menemukan irisan (elemen-elemen yang ada di kedua himpunan), dan
+                  menghitung selisih antara dua himpunan. Aplikasi ini dapat digunakan untuk
+                  analisis data dasar dan studi mengenai teori himpunan.
+               </p>
+
+               <h2 class="text-lg font-semibold mt-3">Cara Menggunakan</h2>
+               <ol class="list-decimal list-inside list-outside ml-5">
+                  <li>
+                     <span class="font-semibold">Memasukkan Data Himpunan:</span>
+                     <p>
+                        Masukkan elemen-elemen himpunan A dan himpunan B pada masing-masing
+                        textarea. Setiap elemen harus dipisahkan dengan baris baru.
+                     </p>
+                  </li>
+                  <li>
+                     <span class="font-semibold">Melihat Kardinalitas Secara Langsung:</span>
+                     <p>
+                        Setelah Anda mulai mengetikkan elemen pada himpunan A dan himpunan B, jumlah
+                        elemen akan langsung diperbarui dan ditampilkan di samping label
+                        masing-masing textarea.
+                     </p>
+                  </li>
+                  <li>
+                     <span class="font-semibold">Menghitung Statistik Himpunan:</span>
+                     <p>
+                        Setelah kedua textarea terisi dengan elemen-elemen himpunan, tombol "Hitung
+                        Statistik" akan diaktifkan. Klik tombol tersebut dan Anda akan diarahkan ke
+                        halaman Output yang menampilkan hasil statistik:
+                     </p>
+                     <ul class="list-disc list-inside list-outside pl-5">
+                        <li>Kardinalitas dari Himpunan A dan B.</li>
+                        <li>Irisan (A ∩ B): Elemen-elemen yang ada di kedua himpunan.</li>
+                        <li>
+                           Selisih (A - B): Elemen-elemen yang hanya ada di himpunan A dan tidak di
+                           himpunan B.
+                        </li>
+                        <li>
+                           Selisih (B - A): Elemen-elemen yang hanya ada di himpunan B dan tidak di
+                           himpunan A.
+                        </li>
+                     </ul>
+                  </li>
+                  <li>
+                     <span class="font-semibold">Kembali ke Halaman Input:</span>
+                     <p>
+                        Jika Anda ingin memasukkan himpunan baru atau memperbaiki input, klik ikon
+                        ("<i class="fa-solid fa-arrow-left"></i>") untuk kembali ke halaman Input.
+                     </p>
+                  </li>
+                  <li>
+                     <span class="font-semibold">Menghapus Input:</span>
+                     <p>
+                        Untuk menghapus semua input dan memulai kembali, klik ikon ("<i
+                           class="fa-solid fa-trash"
+                        ></i
+                        >") pada halaman Input.
+                     </p>
+                  </li>
+               </ol>
+
+               <h2 class="text-lg font-semibold mt-3">Penutup</h2>
+               <p>
+                  Website ini dirancang untuk memudahkan pengguna dalam memahami operasi dasar pada
+                  himpunan dengan antarmuka yang intuitif dan fungsionalitas yang sederhana. Dengan
+                  alat ini, Anda dapat menghemat waktu dan mengurangi kesalahan dalam menghitung
+                  statistik dasar himpunan. Kami berharap website ini bermanfaat untuk kebutuhan
+                  pembelajaran dan analisis Anda.
+               </p>
+            </div>
+         </main>
+
+         <!-- Footer -->
+         <footer class="bg-[#00adb5] text-[0.8rem] p-2.5 text-center">
+            <p>&copy; All Rights Reserved by Sulton Muhajir</p>
+         </footer>
+      </div>
+
+      <script src="./script.js"></script>
+   </body>
+</html>
