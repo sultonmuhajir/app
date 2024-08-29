@@ -1,14 +1,14 @@
 // Variables
-const backButton = document.getElementById("backButton");
-const infoButton = document.getElementById("infoButton");
-const mainHome = document.getElementById("mainHome");
-const mainAbout = document.getElementById("mainAbout");
+const backButton   = document.getElementById("backButton");
+const infoButton   = document.getElementById("infoButton");
+const mainHome     = document.getElementById("mainHome");
+const mainAbout    = document.getElementById("mainAbout");
 
 const defaultInput = document.getElementById("defaultInput");
-const editButton = document.getElementById("editButton");
-const lockButton = document.getElementById("lockButton");
-const pxInput = document.getElementById("pxInput");
-const emInput = document.getElementById("emInput");
+const editButton   = document.getElementById("editButton");
+const lockButton   = document.getElementById("lockButton");
+const pxInput      = document.getElementById("pxInput");
+const emInput      = document.getElementById("emInput");
 
 // Functions
 function _MainHome() {
@@ -44,7 +44,7 @@ function _Lock() {
 }
 
 function _Converter(type, input, output) {
-   if (input.value != 0) {
+   if (!isNaN(input.value) & (input.value != "")) {
       output.disabled = true;
       output.value =
          type == "px-em"
