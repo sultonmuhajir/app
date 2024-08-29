@@ -36,15 +36,17 @@ function _Edit() {
 }
 
 function _Lock() {
-   defaultInput.disabled = true;
-   pxInput.disabled = false;
-   emInput.disabled = false;
-   editButton.classList.remove("hidden");
-   lockButton.classList.add("hidden");
+   if (defaultInput.value && defaultInput.value != 0 && !isNaN(defaultInput.value)) {
+      defaultInput.disabled = true;
+      pxInput.disabled = false;
+      emInput.disabled = false;
+      editButton.classList.remove("hidden");
+      lockButton.classList.add("hidden");
+   }
 }
 
 function _Converter(type, input, output) {
-   if (!isNaN(input.value) & (input.value != "")) {
+   if (input.value && !isNaN(input.value)) {
       output.disabled = true;
       output.value =
          type == "px-em"
